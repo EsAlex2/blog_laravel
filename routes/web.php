@@ -8,10 +8,10 @@ use App\Http\Controllers\postController;
 //Ruta basica para mostrar una vista
 Route::get('/', [homeController::class, 'index']);
 
-
 //ruta para mostrar un mensaje desde el controlador llamando a sus metodos
 Route::get('/posts', [postController::class, 'index']);
-Route::get('/posts/create', [postController::class,'create']); 
+Route::get('/create', [postController::class,'create']); 
+Route::get('/posts/{post}', [postController::class,'show']); 
 
 
 Route::get('/usuario/create', function () {
