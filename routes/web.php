@@ -1,17 +1,18 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\postController;
+
+//Ruta basica para mostrar una vista
+Route::get('/', [homeController::class, 'index']);
 
 
-//Ruta basica para mostrar una vista 'return view()'
-Route::get('/', function () {
-    return view('welcome');
-});
+//ruta para mostrar un mensaje desde el controlador llamando a sus metodos
+Route::get('/posts', [postController::class, 'index']);
+Route::get('/posts/create', [postController::class,'create']); 
 
-//Ruta basica para mostrar un texto
-Route::get('/saludo', function () {
-    return 'HOLA MUNDO!';
-});
 
 Route::get('/usuario/create', function () {
     return "Usuario creado exitosamente";
